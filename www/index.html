@@ -35,12 +35,16 @@
 			<td><div  id="txtBox9"class="tictactoebox"/></td>
 		
 		</tr>
+		</table>
+		<br/>
+		<button id="btnClear">Clear</button>
 		
 		<script>
 		
-		//event code
+		//event listeners
 		
 		$(".tictactoebox").click(markX);
+		$("#btnClear").click(clearSquares)
 		
 		
 		
@@ -59,7 +63,21 @@
 		
 		
 	
+		function clearSquares()
+		{
+			for (x=0;x<10;x++)
+			{
+				var txtBoxToClear = "#txtBox" + x;
+				$(txtBoxToClear).html("");
+				
+			
+			
+			}
 		
+		
+		
+		
+		}
 		
 		function findOpenSquare()
 		{
