@@ -18,29 +18,27 @@
 		
 		<table border="1">
 		<tr>
-			<td><input type="text" id="txtBox1" class="tictactoebox"/></td>
-			<td><input type="text" id="txtBox2" class="tictactoebox"/></td>
-			<td><input type="text" id="txtBox3"class="tictactoebox"/></td>
+			<td><div  id="txtBox1" class="tictactoebox"/></td>
+			<td><div  id="txtBox2" class="tictactoebox"/></td>
+			<td><div  id="txtBox3"class="tictactoebox"/></td>
 		
 		</tr>
 		<tr>
-			<td><input type="text" id="txtBox4"class="tictactoebox"/></td>
-			<td><input type="text" id="txtBox5"class="tictactoebox"/></td>
-			<td><input type="text" id="txtBox6"class="tictactoebox"/></td>
+			<td><div  id="txtBox4"class="tictactoebox"/></td>
+			<td><div  id="txtBox5"class="tictactoebox"/></td>
+			<td><div  id="txtBox6"class="tictactoebox"/></td>
 		
 		</tr>
 		<tr>
-			<td><input type="text" id="txtBox7"class="tictactoebox"/></td>
-			<td><input type="text" id="txtBox8"class="tictactoebox"/></td>
-			<td><input type="text" id="txtBox9"class="tictactoebox"/></td>
+			<td><div  id="txtBox7"class="tictactoebox"/></td>
+			<td><div  id="txtBox8"class="tictactoebox"/></td>
+			<td><div  id="txtBox9"class="tictactoebox"/></td>
 		
 		</tr>
 		
 		<script>
 		
 		//event code
-		
-		var turn=1;
 		
 		$(".tictactoebox").click(markX);
 		
@@ -49,10 +47,10 @@
 		
 		function markX()
 		{
-		//alert(event.target.id);
+		
 		var box ="#" + event.target.id;
-		$(box).val("X")
-		turn=1;
+		$(box).html("X")
+	
 		findOpenSquare();
 		
 		
@@ -72,9 +70,9 @@
 			{
 			
 				var txtBoxToCheck = "#txtBox" + x;
-				if ($(txtBoxToCheck).val()=="")
+				if ($(txtBoxToCheck).html()=="")
 				{
-					$(txtBoxToCheck).val("O");
+					$(txtBoxToCheck).html("O");
 					changemade=true;
 								
 				}
