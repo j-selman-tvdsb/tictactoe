@@ -4,6 +4,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />             
         <title>Tic Tac Toe</title>
+		<link rel="stylesheet" type="text/css" href="css/tictactoe.css">
     </head>
     <body>
 			
@@ -17,23 +18,78 @@
 		
 		<table border="1">
 		<tr>
-			<td><input type="text" id="txtBox1"/></td>
-			<td><input type="text" id="txtBox2"/></td>
-			<td><input type="text" id="txtBox3"/></td>
+			<td><input type="text" id="txtBox1" class="tictactoebox"/></td>
+			<td><input type="text" id="txtBox2" class="tictactoebox"/></td>
+			<td><input type="text" id="txtBox3"class="tictactoebox"/></td>
 		
 		</tr>
 		<tr>
-			<td><input type="text" id="txtBox4"/></td>
-			<td><input type="text" id="txtBox5"/></td>
-			<td><input type="text" id="txtBox6"/></td>
+			<td><input type="text" id="txtBox4"class="tictactoebox"/></td>
+			<td><input type="text" id="txtBox5"class="tictactoebox"/></td>
+			<td><input type="text" id="txtBox6"class="tictactoebox"/></td>
 		
 		</tr>
 		<tr>
-			<td><input type="text" id="txtBox7"/></td>
-			<td><input type="text" id="txtBox8"/></td>
-			<td><input type="text" id="txtBox9"/></td>
+			<td><input type="text" id="txtBox7"class="tictactoebox"/></td>
+			<td><input type="text" id="txtBox8"class="tictactoebox"/></td>
+			<td><input type="text" id="txtBox9"class="tictactoebox"/></td>
 		
 		</tr>
+		
+		<script>
+		
+		//event code
+		
+		var turn=1;
+		
+		$(".tictactoebox").click(markX);
+		
+		
+		
+		
+		function markX()
+		{
+		//alert(event.target.id);
+		var box ="#" + event.target.id;
+		$(box).val("X")
+		turn=1;
+		findOpenSquare();
+		
+		
+		
+		}
+		
+		
+	
+		
+		
+		function findOpenSquare()
+		{
+			
+			var x=1;
+			var changemade=false;
+			while(x<10)
+			{
+			
+				var txtBoxToCheck = "#txtBox" + x;
+				if ($(txtBoxToCheck).val()=="")
+				{
+					$(txtBoxToCheck).val("O");
+					changemade=true;
+								
+				}
+				
+				if (changemade==true)
+					break;
+				else
+					x++;
+			
+			
+			}
+			
+		}
+		
+		</script>
 
     </body>
 </html>
