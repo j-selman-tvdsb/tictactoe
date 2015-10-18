@@ -41,12 +41,69 @@
 		
 		<script>
 		
+		
+		//global variables
+		
+		var gamewon=false;
+		
 		//event listeners
 		
 		$(".tictactoebox").click(markX);
 		$("#btnClear").click(clearSquares)
+		$(".tictactoebox").dblclick(makeRed);
 		
 		
+		
+		//functions
+		
+		function determineIfGameWon()
+		{
+			
+			
+			determineWinner(1,2,3);
+			determineWinner(2,5,8);
+			determineWinner(3,6,9);
+			determineWinner(1,5,9);
+			determineWinner(4,5,6);
+			determineWinner(7,8,9);
+			determineWinner(3,5,7);
+			determineWinner(1,4,7);
+			
+		
+		
+		
+		}
+		function determineWinner(x,y,z)
+		{
+			
+			
+			if 
+			(
+				$("#txtBox" + x).html()== $("#txtBox" + y).html() &&
+				$("#txtBox" + x).html()== $("#txtBox" + z).html() &&
+				$("#txtBox" + x).html()!= ""
+				
+			)
+			{
+				makeRed(x,y,z);
+				alert($("#txtBox" + x).html() + " wins!!!!!")
+				gamewon=true;
+				
+				
+			}
+		}
+		
+		
+		function makeRed(x,y,z)
+		{
+			var box ="#txtBox" + x;
+			var box2 ="#txtBox" + y;
+			var box3 ="#txtBox" + z;
+			
+			$(box).css('color', 'red');
+			$(box2).css('color', 'red');
+			$(box3).css('color', 'red');
+		}
 		
 		
 		function markX()
@@ -54,8 +111,12 @@
 		
 		var box ="#" + event.target.id;
 		$(box).html("X")
-	
-		findOpenSquare();
+		determineIfGameWon();
+		if(gamewon==false)
+		{
+			findOpenSquare();
+			determineIfGameWon();
+		}
 		
 		
 		
@@ -69,6 +130,8 @@
 			{
 				var txtBoxToClear = "#txtBox" + x;
 				$(txtBoxToClear).html("");
+				$(txtBoxToClear).css('color', 'black');
+				gamewon=false;
 				
 			
 			
