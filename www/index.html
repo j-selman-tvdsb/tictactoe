@@ -4,40 +4,28 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />             
         <title>Tic Tac Toe</title>
-		<link rel="stylesheet" type="text/css" href="css/tictactoe.css">
-    </head>
-    <body>
-			
 		
-        
-        <script type="text/javascript" src="phonegap.js"></script>
-       	<script type="text/javascript" src="js/jquery-1.8.2.js"></script>
-       
+		<style>
+						.tictactoebox {
+						width: 100px;
+						height: 100px;
+						font-size: 50pt;
+						text-align:center;
+					}
 
-		<h2>Tic Tac Toe</h2>
+					button{
+						width:300px;
+						height:70px;
+						font-size: 30pt;
+						background-color:blue;
+						color:white;
+						
+					}
 		
-		<table border="1">
-		<tr>
-			<td><div  id="txtBox1" class="tictactoebox"/></td>
-			<td><div  id="txtBox2" class="tictactoebox"/></td>
-			<td><div  id="txtBox3"class="tictactoebox"/></td>
+		</style>
 		
-		</tr>
-		<tr>
-			<td><div  id="txtBox4"class="tictactoebox"/></td>
-			<td><div  id="txtBox5"class="tictactoebox"/></td>
-			<td><div  id="txtBox6"class="tictactoebox"/></td>
-		
-		</tr>
-		<tr>
-			<td><div  id="txtBox7"class="tictactoebox"/></td>
-			<td><div  id="txtBox8"class="tictactoebox"/></td>
-			<td><div  id="txtBox9"class="tictactoebox"/></td>
-		
-		</tr>
-		</table>
-		<br/>
-		<button id="btnClear">Clear</button>
+		<script type="text/javascript" src="phonegap.js"></script>
+       	<script type="text/javascript" src="js/jquery-1.8.2.js"></script>
 		
 		<script>
 		
@@ -50,7 +38,7 @@
 		
 		$(".tictactoebox").click(markX);
 		$("#btnClear").click(clearSquares)
-		$(".tictactoebox").dblclick(makeRed);
+		
 		
 		
 		
@@ -108,20 +96,20 @@
 		
 		function markX()
 		{
-		
-		var box ="#" + event.target.id;
-		$(box).html("X")
-		determineIfGameWon();
-		if(gamewon==false)
-		{
-			findOpenSquare();
-			determineIfGameWon();
+			if(gamewon==false)
+			{
+				var box ="#" + event.target.id;
+				$(box).html("X")
+				determineIfGameWon();
+				if(gamewon==false)
+				{
+					findOpenSquare();
+					determineIfGameWon();
+				}
+			
+			
+			}
 		}
-		
-		
-		
-		}
-		
 		
 	
 		function clearSquares()
@@ -169,6 +157,50 @@
 		}
 		
 		</script>
+    </head>
+    <body>
+			
+		
+        
+        
+       
+
+		<h2>Tic Tac Toe</h2>
+		
+		<table border="1">
+		<tr>
+			<td><div  id="txtBox1" class="tictactoebox"/></td>
+			<td><div  id="txtBox2" class="tictactoebox"/></td>
+			<td><div  id="txtBox3"class="tictactoebox"/></td>
+		
+		</tr>
+		<tr>
+			<td><div  id="txtBox4"class="tictactoebox"/></td>
+			<td><div  id="txtBox5"class="tictactoebox"/></td>
+			<td><div  id="txtBox6"class="tictactoebox"/></td>
+		
+		</tr>
+		<tr>
+			<td><div  id="txtBox7"class="tictactoebox"/></td>
+			<td><div  id="txtBox8"class="tictactoebox"/></td>
+			<td><div  id="txtBox9"class="tictactoebox"/></td>
+		
+		</tr>
+		</table>
+		<br/>
+		<button id="btnClear">Clear</button>
+		
+		<script>
+		
+		
+		//event listeners
+		
+		$(".tictactoebox").click(markX);
+		$("#btnClear").click(clearSquares)
+		
+		</script>
+		
+		
 
     </body>
 </html>
