@@ -46,9 +46,8 @@
 					}
 		
 		</style>
-		
-		<script type="text/javascript" src="phonegap.js"></script>
-       	<script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+	  <script src="phonegap.js></script>
+      <script src="js/jquery-1.8.2.js"></script>
 		
 		<script>
 		
@@ -56,16 +55,27 @@
 		//global variables
 		
 		var gamewon=false;
-		
-		//event listeners
-		
-		$(".tictactoebox").click(markX);
-		$("#btnClear").click(clearSquares)
-		
-		
-		
-		
+				
 		//functions
+		
+		/*
+		
+		function name- determineIfGameWon
+		developed by-John Selman
+		edited by-
+		purpose- check each of the conditions
+		referenced by box number that would lead to
+		a game being won.
+		
+		1 | 2 |3
+		--------
+		4 | 5 |6
+		--------
+		7 | 8 |9
+		
+		
+		
+		*/
 		
 		function determineIfGameWon()
 		{
@@ -84,6 +94,18 @@
 		
 		
 		}
+		
+		/*
+		
+		function name- determineWinner
+		developed by-John Selman
+		edited by-
+		purpose- uses jquery calls to check the 
+		equality of the non blank values within 
+		the tictactoe boxes.
+		
+		*/
+		
 		function determineWinner(x,y,z)
 		{
 			
@@ -104,6 +126,18 @@
 			}
 		}
 		
+		/*
+		
+		function name- makeRed
+		developed by-John Selman
+		edited by-
+		purpose- alters the color of
+		the tictactoe boxes referenced in the 
+		parameters to red.  
+		
+		Called when a winning combination has been found.
+		
+		*/
 		
 		function makeRed(x,y,z)
 		{
@@ -117,10 +151,26 @@
 		}
 		
 		
+		/*
+		
+		function name- markX
+		developed by-John Selman
+		edited by-
+		purpose- Uses jquery to place an X in the box the 
+		user clicks.  Then a check is made to 
+		see if the game is won.  If the game is not won, then
+		a call is made for the computer to place its O value
+		in the first available space. (Not too smart)
+		
+		*/
 		function markX()
 		{
 			if(gamewon==false)
 			{
+				
+				//event.target_id will be the id value of the tictacbox that was clicked.
+				//When concatinated with the # into a variable, It can be 
+				//used with jquery to place html within the tictactoe box.
 				var box ="#" + event.target.id;
 				$(box).html("X")
 				determineIfGameWon();
@@ -134,6 +184,15 @@
 			}
 		}
 		
+		/*
+		
+		function name- clearSquares
+		developed by-John Selman
+		edited by-
+		purpose- resets the playing surface.  Called when the 
+		Clear button is clicked.
+		
+		*/
 	
 		function clearSquares()
 		{
@@ -147,18 +206,22 @@
 			
 			
 			}
-		
-		
-		
-		
 		}
+		/*
 		
+		function name- findOpenSquare
+		developed by-John Selman
+		edited by-
+		purpose- Places an O in the first available 
+		tictactoe box.
+		
+		*/
 		function findOpenSquare()
 		{
 			
 			var x=1;
 			var changemade=false;
-			while(x<10)
+			while(changemade==false)
 			{
 			
 				var txtBoxToCheck = "#txtBox" + x;
@@ -169,10 +232,8 @@
 								
 				}
 				
-				if (changemade==true)
-					break;
-				else
-					x++;
+				
+				x++;
 			
 			
 			}
@@ -217,6 +278,13 @@
 		
 		
 		//event listeners
+		
+		//uses jquery to listen for events on objects on the webpage
+		//A . (dot) denotes listening for an event on a whole class of objects,
+		//In this case a tictactoe box.
+		
+		//The # denotes the attaching an event to the unique id of a form object.
+		
 		
 		$(".tictactoebox").click(markX);
 		$("#btnClear").click(clearSquares)
