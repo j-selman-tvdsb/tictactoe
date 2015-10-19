@@ -3,17 +3,18 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "ca.tvdsb.HelloWorld"
+        id        = "ca.tvdsb.TicTacToe"
         version   = "1.0.0">
 
     <name>Tic Tac Toe</name>
 
     <description>
-       This is a beginning phoneGap applicaton.  There is no smarts to this Tic Tac Toe Game.
+       This is a beginning phoneGap applicaton.  There are no smarts to this Tic Tac Toe Game. 
+	   If you would like to take part in the TVDSB tic tac toe challenge, go to <a href='http://www.tvdsb.ca/tictactoechallenge' target='_blank'>www.tvdsb.ca/tictactoechallenge</a> for more details.
     </description>
 
-    <author href="http://phonegap.com" email="support@phonegap.com">
-        PhoneGap Team
+    <author href="http://www.tvdsb.ca/webpages/jselman" email="j.selman@tvdsb.on.ca">
+        John Selman
     </author>
 
     <!--
