@@ -6,7 +6,7 @@
         id        = "com.tvdsb.TicTacToe1"
         version   = "1.0.0">
 
-    <name>Tic Tac Toe</name>
+    <name>Tic Tac Toe (Beginner)</name>
 
     <description>
        This is a beginning phoneGap applicaton.  There are no smarts to this Tic Tac Toe Game. 
